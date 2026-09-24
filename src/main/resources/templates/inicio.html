@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SIGE PAISA — Inicio</title>
+</head>
+<body>
+
+<h1>Bienvenido a SIGE PAISA</h1>
+<p>Sesión iniciada como: <span th:text="${#authentication.name}">usuario</span></p>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Cerrar sesión</button>
+</form>
+
+</body>
+</html>

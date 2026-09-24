@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<body>
+
+<div th:fragment="contenido">
+
+    <h1 class="sp-titulo"
+        th:text="${producto.idProducto} == null ? 'Nuevo producto' : 'Editar producto'">Producto</h1>
+
+    <div class="card">
+        <div class="card-body">
+
+            <form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
+
+                <input type="hidden" th:field="*{idProducto}">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" th:field="*{nombre}" required maxlength="100">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Categoría</label>
+                        <input type="text" class="form-control" th:field="*{categoria}" maxlength="50">
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Descripción</label>
+                        <input type="text" class="form-control" th:field="*{descripcion}" maxlength="255">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Unidad de medida</label>
+                        <select class="form-select" th:field="*{unidadMedida}">
+                            <option value="UNIDAD">Unidad</option>
+                            <option value="KG">Kilogramo</option>
+                            <option value="LIBRA">Libra</option>
+                            <option value="GRAMO">Gramo</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Precio de venta</label>
+                        <input type="number" class="form-control" step="0.01" min="0"
+                               th:field="*{precioVenta}" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Stock mínimo</label>
+                        <input type="number" class="form-control" step="0.001" min="0"
+                               th:field="*{stockMinimo}" required>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input"
+                                   id="requiereFrio" th:field="*{requiereFrio}">
+                            <label class="form-check-label" for="requiereFrio">
+                                Requiere refrigeración
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="my-4">
+
+                <button type="submit" class="btn btn-sp">Guardar</button>
+                <a th:href="@{/productos}" class="btn btn-outline-secondary">Cancelar</a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

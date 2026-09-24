@@ -1,0 +1,189 @@
+:root {
+    --sp-vino: #7B2D26;
+    --sp-vino-oscuro: #5A1F1A;
+    --sp-crema: #F5EFE6;
+    --sp-beige: #E8DCC8;
+    --sp-verde: #3E5641;
+    --sp-texto: #2B2321;
+}
+
+body {
+    background-color: var(--sp-crema);
+    color: var(--sp-texto);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ---------- Barra lateral ---------- */
+.sp-sidebar {
+    background-color: var(--sp-vino);
+    min-height: 100vh;
+    width: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1.25rem 0;
+    overflow-y: auto;
+}
+
+.sp-sidebar .sp-marca {
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 0 1.25rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 0.75rem;
+}
+
+.sp-sidebar .sp-marca small {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    opacity: 0.75;
+}
+
+.sp-sidebar a {
+    display: block;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.93rem;
+    border-left: 3px solid transparent;
+}
+
+.sp-sidebar a:hover {
+    background-color: var(--sp-vino-oscuro);
+    color: #fff;
+}
+
+.sp-sidebar a.activo {
+    background-color: var(--sp-vino-oscuro);
+    border-left-color: var(--sp-beige);
+    color: #fff;
+    font-weight: 600;
+}
+
+.sp-sidebar .sp-grupo {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1rem 1.25rem 0.35rem;
+}
+
+/* ---------- Contenido ---------- */
+.sp-contenido {
+    margin-left: 240px;
+    padding: 1.5rem 2rem;
+}
+
+.sp-barra-superior {
+    background-color: #fff;
+    border-bottom: 1px solid var(--sp-beige);
+    padding: 0.7rem 2rem;
+    margin: -1.5rem -2rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sp-titulo {
+    color: var(--sp-vino);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+
+/* ---------- Componentes ---------- */
+.btn-sp {
+    background-color: var(--sp-vino);
+    border-color: var(--sp-vino);
+    color: #fff;
+}
+
+.btn-sp:hover {
+    background-color: var(--sp-vino-oscuro);
+    border-color: var(--sp-vino-oscuro);
+    color: #fff;
+}
+
+.card {
+    border: 1px solid var(--sp-beige);
+    border-radius: 6px;
+}
+
+.table thead th {
+    background-color: var(--sp-beige);
+    color: var(--sp-texto);
+    border-bottom: 2px solid var(--sp-vino);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sp-acento {
+    color: var(--sp-verde);
+}
+/* ---------- Pantalla de login ---------- */
+.sp-login-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--sp-vino) 0%, var(--sp-vino-oscuro) 100%);
+    padding: 1rem;
+}
+
+.sp-login-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.sp-login-header {
+    background-color: var(--sp-crema);
+    border-bottom: 3px solid var(--sp-vino);
+    padding: 1.75rem 2rem 1.5rem;
+    text-align: center;
+}
+
+.sp-login-header h1 {
+    color: var(--sp-vino);
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.sp-login-header p {
+    color: var(--sp-texto);
+    font-size: 0.8rem;
+    margin: 0.25rem 0 0;
+    opacity: 0.7;
+}
+
+.sp-login-body-form {
+    padding: 1.75rem 2rem 2rem;
+}
+
+.sp-login-body-form .form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--sp-texto);
+}
+
+.sp-login-body-form .form-control:focus {
+    border-color: var(--sp-vino);
+    box-shadow: 0 0 0 0.2rem rgba(123, 45, 38, 0.15);
+}
+
+.sp-login-pie {
+    text-align: center;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 1.25rem;
+}

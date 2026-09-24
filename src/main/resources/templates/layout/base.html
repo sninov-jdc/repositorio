@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${titulo} + ' — SIGE PAISA'">SIGE PAISA</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/sigepaisa.css}">
+</head>
+<body>
+
+<nav class="sp-sidebar">
+    <div class="sp-marca">
+        SIGE PAISA
+        <small>Salsamentaria El Paisa</small>
+    </div>
+
+    <a sec:authorize="hasRole('ADMINISTRADOR')" th:href="@{/admin/inicio}"
+       th:classappend="${seccion == 'inicio'} ? 'activo'">Inicio</a>
+    <a sec:authorize="hasRole('VENDEDOR')" th:href="@{/vendedor/inicio}"
+       th:classappend="${seccion == 'inicio'} ? 'activo'">Inicio</a>    <div class="sp-grupo">Inventario</div>
+    <a th:href="@{/productos}" th:classappend="${seccion == 'productos'} ? 'activo'">Productos</a>
+    <a th:href="@{/lotes}" th:classappend="${seccion == 'lotes'} ? 'activo'">Lotes</a>
+    <a th:href="@{/movimientos}" th:classappend="${seccion == 'movimientos'} ? 'activo'">Movimientos</a>
+
+    <div class="sp-grupo">Comercial</div>
+    <a th:href="@{/ventas}" th:classappend="${seccion == 'ventas'} ? 'activo'">Ventas</a>
+    <a th:href="@{/clientes}" th:classappend="${seccion == 'clientes'} ? 'activo'">Clientes</a>
+
+    <div class="sp-grupo">Refrigeración</div>
+    <a th:href="@{/equipos}" th:classappend="${seccion == 'equipos'} ? 'activo'">Equipos</a>
+    <a th:href="@{/alertas}" th:classappend="${seccion == 'alertas'} ? 'activo'">Alertas</a>
+
+    <div class="sp-grupo" sec:authorize="hasRole('ADMINISTRADOR')">Administración</div>
+    <a sec:authorize="hasRole('ADMINISTRADOR')" th:href="@{/proveedores}"
+       th:classappend="${seccion == 'proveedores'} ? 'activo'">Proveedores</a>
+    <a sec:authorize="hasRole('ADMINISTRADOR')" th:href="@{/usuarios}"
+       th:classappend="${seccion == 'usuarios'} ? 'activo'">Usuarios</a>
+    <a sec:authorize="hasRole('ADMINISTRADOR')" th:href="@{/reportes}"
+       th:classappend="${seccion == 'reportes'} ? 'activo'">Reportes</a>
+</nav>
+
+<div class="sp-contenido">
+
+    <div class="sp-barra-superior">
+        <span class="small text-muted">
+            <span sec:authentication="name">usuario</span>
+        </span>
+        <form th:action="@{/logout}" method="post" class="d-inline">
+            <button type="submit" class="btn btn-sm btn-outline-secondary">Cerrar sesión</button>
+        </form>
+    </div>
+
+    <div th:replace="~{${contenido} :: contenido}">
+        <p>Contenido de la página</p>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
